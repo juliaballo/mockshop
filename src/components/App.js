@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getProducts } from '../actions/productsActions';
+import CategoriesList from './CategoriesList.react';
 
-function App() {
-  return <>HELLO WORLD</>;
-}
+const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProducts);
+  },[])
+
+  return(
+    <>
+      <CategoriesList />
+    </>
+  );
+  }
 
 export default App;
