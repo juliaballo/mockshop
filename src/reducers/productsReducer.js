@@ -10,10 +10,12 @@ const groupProductsByCategory = data => {
             categorizedProducs[item.category] = [item];
         }
     });
+    console.log("categorizedProducs:", categorizedProducs);
     return categorizedProducs;
 }
 
 const productsReducer = (state = {}, action) => {
+    console.log("in the reducer");
     switch(action.type) {
         case POPULATE_PRODUCTS: 
             return groupProductsByCategory(action.payload);
